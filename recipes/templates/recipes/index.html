@@ -1,0 +1,28 @@
+{% extends "recipes/layout.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{% if recipes %}
+<div class="row container justify-content-center">
+    {% for recipe in recipes %}
+    <div class="card my-3 mx-4 col-md-3 col-lg-2 col-sm-6 bg-warning-subtle">
+        <img src="{{ recipe.image_url }}" class="card-img-top img-fluid mt-3" alt="{{ recipe.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <a href="{% url 'recipe' recipe_id=recipe.id %}" class="btn btn-outline-primary">View Recipe</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% elif query %}
+<div>
+    <p>No results found for "{{ query }}".</p>
+</div>
+{% else %}
+<div class="p-3" id="catalog">
+</div>
+<script src="{% static 'recipes/home.js' %}" type="text/babel"></script>
+{% endif %}
+{% endblock %}

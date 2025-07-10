@@ -1,0 +1,51 @@
+{% extends "recipes/layout.html" %}
+{% load static %}
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block body %}
+<div class="container justify-content-center p-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ recipe.image_url }}" class="img-fluid mb-3" alt="{{ recipe.strMeal }}"> <br>
+            <i class="bi bi-globe"></i> <strong>Source:</strong>
+            <a href="{{ recipe.source }}" class="text-decoration-none text-primary-emphasis">
+                {{ recipe.source }}
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h1 class="text-primary-emphasis">{{ recipe.title}}</h1>
+            <p><strong>Instructions:</strong></p>
+            <ol class="list-group list-group-numbered" >
+                {% for instruction in instructions %}
+                {% if instruction %}
+                <li class="list-group-item list-group-item-action list-group-item-success mb-1">{{ instruction }}</li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="col-md-3">
+            <div class="mt-2">
+                <h4>Ingredients:</h4>
+                <table class="table table-hover table-success">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Measurement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ingredient in ingredients %}
+                        {% if ingredient.name %}
+                        <tr>
+                            <td>{{ ingredient.name }}</td>
+                            <td>{{ ingredient.measurement }} </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
