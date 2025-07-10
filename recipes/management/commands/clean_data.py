@@ -21,6 +21,7 @@ class Command(BaseCommand):
         self.remove_invalid_ingredients()
         self.remove_duplicate_ingredients()
         self.reorder_recipes()
+        self.remove_duplicate_recipes()
         self.stdout.write("Data cleanup completed.")
 
     def remove_recipes_without_ingredients(self):
@@ -109,6 +110,18 @@ class Command(BaseCommand):
             first_ingredient.name = norm_name.title()
             first_ingredient.save()
         self.stdout.write("Ingredient cleanup completed.")
+
+    def remove_duplicate_recipes(self):
+        all_recipes = Recipe.objects.all()
+        recipe_map = defaultdict(list)
+        for recipe in all_recipes:
+            recipe_map[recipe.title].append(recipe)
+
+        for title, recipes in recipe_map.items():
+            if len(recipes) > 1:
+                for recipe in recipes[1:]:
+                    recipe.delete()
+                self.stdout.write(f"Deleted {len(recipes) - 1} duplicate recipes.")
 
     def reorder_recipes(self):
         recipes = Recipe.objects.all()
