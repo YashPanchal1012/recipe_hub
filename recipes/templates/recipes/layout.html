@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 
-<body>
+<body class="bg-success-subtle bg-gradient">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
@@ -40,7 +40,7 @@
         </div>
     </nav>
 
-    <div class="bg-success-subtle d-flex justify-content-center p-4">
+    <div class="bg-success-subtle bg-gradient d-flex justify-content-center p-4">
         <form action="{% url 'index' %}" method="get" role="search">
             <input type="text" name="query" class="rounded-pill p-3 text-dark-emphasis bg-body-secondary"
                 autocomplete="on" autofocus="on" size="100" placeholder="Search for recipes..." aria-label="Search">
@@ -48,7 +48,7 @@
         <a href="{% url 'advanced' %}" class="btn btn-outline-primary mx-5 my-auto">Advanced Search</a>
     </div>
 
-    <div class="bg-success d-flex flex-column align-items-center">
+    <div class="bg-success bg-gradient d-flex flex-column align-items-center">
         {% block body %}
         {% endblock %}
     </div>

@@ -7,7 +7,7 @@
 {% if recipes %}
 <div class="row container justify-content-center">
     {% for recipe in recipes %}
-    <div class="card my-3 mx-4 col-md-3 col-lg-2 col-sm-6 bg-warning-subtle">
+    <div class="card my-3 mx-4 col-md-3 col-lg-2 col-sm-6 bg-warning-subtle bg-gradient">
         <img src="{{ recipe.image_url }}" class="card-img-top img-fluid mt-3" alt="{{ recipe.title }}">
         <div class="card-body">
             <h5 class="card-title">{{ recipe.title }}</h5>
