@@ -13,7 +13,7 @@ class Command(BaseCommand):
         meals = []
         ids = ",".join(str(i) for i in range(ID_START, ID_END))
 
-        api_key = "4a32000b81e6429198f51e1e446b3b09"
+        api_key = ""
 
         api_url = f"https://api.spoonacular.com/recipes/informationBulk?apiKey={api_key}&ids={ids}"
         response = requests.get(api_url)
