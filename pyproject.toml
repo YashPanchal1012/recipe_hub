@@ -1,0 +1,3 @@
+[tool.vercel]
+entrypoint = "recipe_generator.wsgi:application"
+

@@ -1,0 +1,21 @@
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Python byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Static files collected by collectstatic
+staticfiles/
+
+# Vercel
+.vercel/
+
+# Environment variables
+.env
+.env.local
+
