@@ -1,3 +1,15 @@
+[project]
+name = "recipe-hub"
+version = "0.1.0"
+description = "Recipe Hub Django Application"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.0,<6.0",
+    "requests>=2.31.0",
+    "whitenoise>=6.6.0",
+    "dj-database-url>=2.1.0",
+]
+
 [tool.vercel]
 entrypoint = "recipe_generator.wsgi:application"
-
